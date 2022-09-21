@@ -48,12 +48,32 @@ if (!isset($_SESSION['ID'])) {
                 </tr>
                 <tr>
                     <td>
-                        <input type="email" name="email" class="form-control" placeholder="E-mail" id='email' value=<?php echo $_SESSION["E-MAIL"] ?> required>
+                        <input type="email" name="email" class="form-control" placeholder="E-mail" id='email' value=<?php echo $_SESSION["E-MAIL"] ?> readonly>
                     </td>
                     <td>
                     </td>
                 </tr>
                 
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th><input type="hidden" name="id" id="id" value="<?php echo $user[
+                        'ID'
+                    ]; ?>" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <label for="goals" class="sr-only">Goals</label>
+                        <input type="number" name="goals" class="form-control" placeholder="0" id='goals' value='<?php echo $user["goal"] ?>'>
+                        <label for="inputPassword2" class="sr-only">Assists</label>
+                        <input type="number" name="assists" class="form-control" placeholder="0" id='assist' value='<?php echo $user["assist"] ?>'>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
             </tbody>
             <thead>
                 <tr>
@@ -92,10 +112,11 @@ if (!isset($_SESSION['ID'])) {
         $password_confirm = $_POST['password_confirm'];
         $name = $_POST['name'];
         $email = $_POST['email'];
-
+        $goal = $_POST['goals'];
+        $assist = $_POST['assists'];
         if ($password == $password_confirm) {
             $password = password_hash($password, PASSWORD_DEFAULT);
-            $query = "UPDATE user SET name = '$name', email = '$email', password = '$password' WHERE id = '$id'";
+            $query = "UPDATE user SET name = '$name', email = '$email', password = '$password', goal = '$goal', assist = '$assist' WHERE id = '$id'";
             $stmt = $db->prepare($query);
             $stmt->execute();
             echo '<script>alert("Password is successfully changed!")</script>';

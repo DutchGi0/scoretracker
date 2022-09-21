@@ -3,7 +3,7 @@
 if (!isset($_SESSION['ID'])) {
     header('Location: index.php?page=login');
 } else {
-     ?>
+    ?>
 <?php
 $sql = 'SELECT * FROM user WHERE email = :email';
 $stmt = $db->prepare($sql);
@@ -23,7 +23,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Netfish - Profile</title>
 </head>
 <?php foreach ($users as $user) {
-    $id = $user['ID']; ?>
+    $id = $user['ID']; 
+    $goals = $user['goal'];
+    $assists = $user['assist'];
+    ?>
 <body>
     <div class="container">
         <h1 class='page-title uppercase'><span class='text-red'>A</span>ccount</h1>
@@ -44,6 +47,15 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                     <tr>
                         <td>Password: ********</td>
+                    </tr>
+                    <tr>
+                        <th>Score:</th>
+                    </tr>
+                    <tr>
+                        <td>Goals: <?php echo $goals ?></td>
+                    </tr>
+                    <tr>
+                        <td>Assists: <?php echo $assists ?></td>
                     </tr>
                     <tr><?php echo "<td><span class='right uppercase'> <a class='btn btn-primary' href='index.php?page=profile_edit&id=" .
                             $user['ID'] .

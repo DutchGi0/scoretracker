@@ -21,20 +21,6 @@
   </head>
   <body>
     <?php if (!isset($_SESSION['USER_ID'])) { ?>
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Stats Tracker</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php?page=homepage">Home</a></li>
-          <a class="nav-link" href="index.php?page=login">Login</a>
-          <a class="nav-link" href="index.php?page=register">Register</a>
-          <a class="nav-link" href="index.php?page=forgotpassword">Forgot password</a>
-          <a class="nav-link" onclick="logout()">Logout</a>
-        </ul>
-    </nav> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand " href="index.php?page=homepage">
         Stats Tracker
@@ -67,17 +53,6 @@
         <!-- Logged in as normal -->
       <?php if (isset($_SESSION['ID']) && $_SESSION['STATUS'] == 'ACTIEF') {
           if ($_SESSION['ROL'] == 0) { ?>
-    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Stats Tracker</a>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php?page=homepage">Home</a></li>
-          <a class="nav-link" href="index.php?page=stats">Check stats</a>
-          <a class="nav-link" href="index.php?page=profile">Profile</a>
-          <a class="nav-link" href="index.php?page=forgotpassword">Forgot password</a>
-          <a class="nav-link" onclick="logout()">Logout</a>
-        </ul>
-    </nav> -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand " href="index.php?page=homepage">
         Stats Tracker
@@ -112,15 +87,33 @@
     <?php if (isset($_SESSION['ID']) && $_SESSION['STATUS'] == 'ACTIEF') {
           if ($_SESSION['ROL'] == 1) { ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Stats Tracker</a>
+      <a class="navbar-brand " href="index.php?page=homepage">
+        Stats Tracker
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="index.php?page=homepage">Home</a></li>
-          <a class="nav-link" href="index.php?page=login">Admin</a>
-          <a class="nav-link" href="index.php?page=register">Register</a>
-          <a class="nav-link" href="index.php?page=forgotpassword">Forgot passwords</a>
-          <a class="nav-link" onclick="logout()">Logout</a>
+            <a class="nav-link" href="index.php?page=homepage">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="index.php?page=admin">Admin</a>
+          </li>
+          <!-- Account -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php echo $_SESSION['USER_ID']; ?>
+                </a>
+                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="accountDropdown">
+                  <a class="dropdown-item" href="index.php?page=profile">View Account</a>
+                  <a class="dropdown-item" onclick="logout()">Logout</a>
+                </div>
+              </li>
         </ul>
+      </div>
     </nav>
     <?php } }?>
     </div>
