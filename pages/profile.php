@@ -32,27 +32,22 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <thead>
                     <tr>
                         <th>Account information</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><?php echo 'Name: ' . $user['name']; ?></td>
-                        <td>
-                        </td>
                     </tr>
                     <tr>
                         <td><?php echo 'Email address: ' .
                             $_SESSION['E-MAIL']; ?></td>
-                        <td>
-                        </td>
                     </tr>
                     <tr>
                         <td>Password: ********</td>
-                        <?php echo "<td><span class='right uppercase'> <a class='btn btn-primary' href='index.php?page=profile_password_edit&id=" .
-                            $user['ID'] .
-                            "'>Edit password</a></span></td>"; ?>
                     </tr>
+                    <tr><?php echo "<td><span class='right uppercase'> <a class='btn btn-primary' href='index.php?page=profile_edit&id=" .
+                            $user['ID'] .
+                            "'>Edit profile</a></span></td>"; ?>
                 </tbody>
             </table>
             <?php

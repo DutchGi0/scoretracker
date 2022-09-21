@@ -17,7 +17,6 @@ if (isset($_SESSION['ID'])) {
     <script src="components\showpassword.js" defer></script>
     <script src="js/jquery-3.6.0.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>    
-    <script src="https://google.com/recaptcha/api.js" async defer></script>
 	<title>Stats Tracker - Register</title>
 </head>
 <body>
@@ -71,9 +70,10 @@ if (isset($_SESSION['ID'])) {
                 } ?>
 				<label for="password" class="form-label">Confirm Password</label>
 				<input type="password" name="password_confirm" class="form-control" id="password" placeholder="confirm password">
+                <input type="checkbox" onclick="showPassword()">Show Password
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+            
 			<button type="submit" name="register_btn" class="btn btn-primary">Register</button> 
             <span class="right">Already have an account? <a class="text-red" href="index.php?page=login" style="text-decoration: none;">Login here!</a></span>
 		</form>
