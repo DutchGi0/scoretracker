@@ -12,7 +12,7 @@ if (isset($_SESSION['ID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/password.js" defer></script>
+    <script src="components\showpassword.js" defer></script>
     <script src="js/jquery-3.6.0.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>
     <script src="https://google.com/recaptcha/api.js" async defer></script>
@@ -35,6 +35,7 @@ if (isset($_SESSION['ID'])) {
                 <input type="checkbox" onclick="showPassword()">Show Password
             </div>
 
+            <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div> -->
             <button type="submit" name="submit" class="btn btn-primary">Login</button> 
             <span class="right">Forgot your password? <a style="text-decoration: none;" class="text-red" href="index.php?page=password_reset">Reset here</a></span>
             <br>

@@ -5,10 +5,11 @@ if (!isset($_SESSION['ID'])) {
 } else {
     ?>
 <?php
-$sql = 'SELECT * FROM user WHERE email = :email';
+$sql = 'SELECT * FROM user INNER JOIN team ON user.id = team.userid WHERE email = :email';
 $stmt = $db->prepare($sql);
 $stmt->execute([':email' => $_SESSION['E-MAIL']]);
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,12 +21,13 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.6.1.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>
-    <title>Netfish - Profile</title>
+    <title>Stat Tracker - Profile</title>
 </head>
 <?php foreach ($users as $user) {
-    $id = $user['ID']; 
+    $id = $user['id']; 
     $goals = $user['goal'];
     $assists = $user['assist'];
+    $team = $user['tm_name'];
     ?>
 <body>
     <div class="container">
@@ -49,7 +51,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td>Password: ********</td>
                     </tr>
                     <tr>
-                        <th>Score:</th>
+                        <th>Team: <?php echo $team ?></th>
+                    </tr>
+                    <tr>
+                        <th>Stats:</th>
                     </tr>
                     <tr>
                         <td>Goals: <?php echo $goals ?></td>
@@ -58,7 +63,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td>Assists: <?php echo $assists ?></td>
                     </tr>
                     <tr><?php echo "<td><span class='right uppercase'> <a class='btn btn-primary' href='index.php?page=profile_edit&id=" .
-                            $user['ID'] .
+                            $user['id'] .
                             "'>Edit profile</a></span></td>"; ?>
                 </tbody>
             </table>

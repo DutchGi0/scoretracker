@@ -70,7 +70,6 @@ if (isset($_SESSION['ID'])) {
                 } ?>
 				<label for="password" class="form-label">Confirm Password</label>
 				<input type="password" name="password_confirm" class="form-control" id="password" placeholder="confirm password">
-                <input type="checkbox" onclick="showPassword()">Show Password
             </div>
 
             

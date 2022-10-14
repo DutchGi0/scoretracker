@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="components/jquery-3.6.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
-    <!-- <script src="bootstrap/js/bootstrap.min.js" defer></script> -->
     <script>
       function logout() {
         var logout = confirm('Are you sure you want to logout?')
@@ -34,6 +33,12 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=homepage">Home</a>
           </li>
+          <!-- <li>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </li> -->
           <!-- Account -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +74,12 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=teams">Teams</a>
           </li>
+          <!-- <li>
+            <form class="d-flex" action="pages/search.php" method="GET">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </li> -->
           <!-- Account -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -100,7 +111,7 @@
             <a class="nav-link" href="index.php?page=homepage">Home</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="index.php?page=admin">Admin</a>
+            <a class="nav-link" href="index.php?page=admin">Admin Panel</a>
           </li>
           <!-- Account -->
               <li class="nav-item dropdown">

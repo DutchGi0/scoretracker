@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['loginAttempts'] = 0;
 
 include_once 'DBconfig.php';
 include_once 'header.php';

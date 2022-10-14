@@ -19,12 +19,12 @@ if (!isset($_SESSION['ID'])) {
 </head>
 <body>
     <?php
-    $sql = 'SELECT * FROM user WHERE ID= ?';
+    $sql = 'SELECT * FROM user WHERE id= ?';
     $stmt = $db->prepare($sql);
     $stmt->execute([$_GET['id']]);
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($users as $user) {
-        $id = $user['ID']; ?>
+        $id = $user['id']; ?>
     <div class="container">
         <h1 class='page-title uppercase'><span class='text-red'>E</span>dit Profile</h1>
         <br>
@@ -34,14 +34,14 @@ if (!isset($_SESSION['ID'])) {
                 <tr>
                     <th>Profile</th>
                     <th><input type="hidden" name="id" id="id" value="<?php echo $user[
-                        'ID'
+                        'id'
                     ]; ?>" /></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <input type="text" name="name" class="form-control" id='name' placeholder="Name" value="<?php echo $_SESSION["USER_ID"]?>" required>
+                        <input type="text" name="name" class="form-control" id='name' placeholder="Name" value="<?php echo $user['name']?>" required>
                     </td>
                     <td>
                     </td>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['ID'])) {
                 <tr>
                     <th>Score</th>
                     <th><input type="hidden" name="id" id="id" value="<?php echo $user[
-                        'ID'
+                        'id'
                     ]; ?>" /></th>
                 </tr>
             </thead>
@@ -67,9 +67,9 @@ if (!isset($_SESSION['ID'])) {
                 <tr>
                     <td>
                         <label for="goals" class="sr-only">Goals</label>
-                        <input type="number" name="goals" class="form-control" placeholder="0" id='goals' value='<?php echo $user["goal"] ?>'>
+                        <input type="number" name="goals" class="form-control" placeholder="0" id='goals' value='<?php echo $user["goal"] ?>' readonly>
                         <label for="inputPassword2" class="sr-only">Assists</label>
-                        <input type="number" name="assists" class="form-control" placeholder="0" id='assist' value='<?php echo $user["assist"] ?>'>
+                        <input type="number" name="assists" class="form-control" placeholder="0" id='assist' value='<?php echo $user["assist"] ?>' readonly>
                     </td>
                     <td>
                     </td>
@@ -79,7 +79,7 @@ if (!isset($_SESSION['ID'])) {
                 <tr>
                     <th>Password</th>
                     <th><input type="hidden" name="id" id="id" value="<?php echo $user[
-                        'ID'
+                        'id'
                     ]; ?>" /></th>
                 </tr>
             </thead>
