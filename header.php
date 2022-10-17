@@ -21,7 +21,7 @@
   <body>
     <?php if (!isset($_SESSION['USER_ID'])) { ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand " href="index.php?page=homepage">
+      <a class="navbar-brand" href="index.php?page=homepage">
         Stats Tracker
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

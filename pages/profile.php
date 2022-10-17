@@ -31,7 +31,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
 <body>
     <div class="container">
-        <h1 class='page-title uppercase'><span class='text-red'>A</span>ccount</h1>
+        <h1 class='title'>Account</h1>
         <br>
             <table class="table table-dark">
                 <thead>

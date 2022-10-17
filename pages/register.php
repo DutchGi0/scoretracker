@@ -21,7 +21,7 @@ if (isset($_SESSION['ID'])) {
 </head>
 <body>
 	<div class="container register-container">
-        <h1 class='page-title uppercase'><span class='text-red'>R</span>egister an account</h1>
+        <h1 class='title'>Register an account</h1>
         <br>
 		<form action="" method="post">
 

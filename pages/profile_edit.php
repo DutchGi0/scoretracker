@@ -26,7 +26,7 @@ if (!isset($_SESSION['ID'])) {
     foreach ($users as $user) {
         $id = $user['id']; ?>
     <div class="container">
-        <h1 class='page-title uppercase'><span class='text-red'>E</span>dit Profile</h1>
+        <h1 class='title'>Edit Profile</h1>
         <br>
         <form action="" method="post">
         <table class="table table-dark">

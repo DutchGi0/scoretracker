@@ -13,7 +13,7 @@ if (isset($_SESSION['ID'])) {
     <!-- <link rel="stylesheet" href="bootstrap/css/bootstrap.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <script src="components\showpassword.js" defer></script>
-    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <script src="js/jquery-3.6.1.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>
     <script src="https://google.com/recaptcha/api.js" async defer></script>
 
@@ -21,7 +21,7 @@ if (isset($_SESSION['ID'])) {
 </head>
 <body>
     <div class="container container--login">
-        <h1 class='page-title uppercase'><span class='text-red'>L</span>ogin</h1>
+        <h1 class='title'>Login</h1>
         <br>
         <form method="POST">
             <div class="mb-3 text-white">

@@ -8,7 +8,7 @@
 </head>
 <body>
     <section>
-        <h1>Stats tracker</h1>
+        <h1 class="title">Stats tracker</h1>
     </section>
 </body>
 </html>
