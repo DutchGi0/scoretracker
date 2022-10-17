@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <h1 class='title'>Teams</h1>
         <br>
-
+        Show teams
     </div>
 </body>
 </html>
