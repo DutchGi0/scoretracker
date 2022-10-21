@@ -7,6 +7,8 @@
     <title>Stats Tracker - Homepage</title>
 </head>
 <body>
-    <p>Test</p>
+    <section>
+        <h1 class="title">Stats tracker</h1>
+    </section>
 </body>
 </html>

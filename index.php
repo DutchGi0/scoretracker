@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include_once 'DBconfig.php';
 include_once 'header.php';
 if (isset($_GET['page'])) {

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.6.0.min.js" defer></script>
+    <script src="components/jquery-3.6.1.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
