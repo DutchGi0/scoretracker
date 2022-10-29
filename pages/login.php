@@ -27,11 +27,11 @@ if (isset($_SESSION['ID'])) {
             <div class="mb-3 text-white">
                 <!-- login via email -->
                 <label for="email" class="form-label">email</label>
-                <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+                <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" autocomplete="off" required>
             </div>
             <div class="mb-3 text-white">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <input type="password" class="form-control" name="password" id="password" autocomplete="off" required>
                 <input type="checkbox" onclick="showPassword()">Show Password
             </div>
 

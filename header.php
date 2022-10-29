@@ -113,6 +113,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=admin">Admin Panel</a>
           </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="index.php?page=teams">Teams</a>
+          </li>
           <!-- Account -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
