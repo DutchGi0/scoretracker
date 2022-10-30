@@ -10,6 +10,16 @@ $stmt->execute(['id' => $_GET['id']]);
 $team = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $name = $team['tm_name'];
+
+$goals = 'SELECT sum(`goal`) as total FROM user;';
+$stmt = $db->prepare($goals);
+$stmt->execute();
+$goals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$assists = 'SELECT sum(`assist`) as total FROM user;';
+$stmt = $db->prepare($assists);
+$stmt->execute();
+$assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +34,21 @@ $name = $team['tm_name'];
 <body>
     <div class="container">
         <h1 class='title'><?php echo $name ?></h1>
+
+        <div class="row">
+            <div class="col-6">
+                <h2 class="h2-title">Goals</h2>
+                <p class="h2-title"><?php foreach ($goals as $goal) {
+                    echo $goal['total'];
+                } ?></p>
+            </div>
+            <div class="col-6">
+                <h2 class="h2-title">Assists</h2>
+                <p class="h2-title"><?php foreach ($assists as $assist) {
+                    echo $assist['total'];
+                } ?></p>
+            </div>
+        </div>
 
         <table class="table table-dark">
             <thead>

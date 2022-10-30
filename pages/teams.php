@@ -1,9 +1,20 @@
 <!-- Get teams DB -->
 <?php
-$sql = 'SELECT * FROM team INNER JOIN user ON team.userid = user.id';
+$sql = 'SELECT * FROM team INNER JOIN user ON team.id = user.id';
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $teams = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+$goals = 'SELECT sum(`goal`) as total FROM user;';
+$stmt = $db->prepare($goals);
+$stmt->execute();
+$goals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$assists = 'SELECT sum(`assist`) as total FROM user;';
+$stmt = $db->prepare($assists);
+$stmt->execute();
+$assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,16 +43,17 @@ $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </thead>
             <tbody>
                 <?php foreach ($teams as $team) {
-                    $id = $team['ID'];
-                    $goals = $team['goal'];
-                    $assists = $team['assist'];
-                    // calculate team players
+                    $id = $team['id'];
                     ?>
                 <tr>
                     <td><?php echo $team['tm_name']; ?></td>
-                    <td><?php echo $goals; ?></td>
-                    <td><?php echo $assists; ?></td>
-                    <td><?php echo "<span class='right uppercase'> <a class='btn btn-primary' href='index.php?page=team&id=" .
+                    <td><?php foreach ($goals as $goal) {
+                        echo $goal['total'];
+                    } ?></td>
+                    <td><?php foreach ($assists as $assist) {
+                        echo $assist['total'];
+                    } ?></td>
+                    <td><?php echo "<span class='uppercase'> <a class='btn btn-primary' href='index.php?page=team&id=" .
                             $team['id'] .
                             "'>View team</a></span>"; ?>
                 </tr>

@@ -29,25 +29,32 @@ if (!isset($_SESSION['ID'])) {
             <tr>
                 <th>Name</th>
                 <th>Team</th>
+                <th>Admin</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            $sql = 'SELECT * FROM user INNER JOIN team ON user.teamid = team.id';
+            $sql = 'SELECT user.id, user.name, user.is_admin, team.tm_name FROM user INNER JOIN team ON user.teamid = team.id;';
             $stmt = $db->prepare($sql);
             $stmt->execute([]);
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($users as $user) {
                 $id = $user['id'];
+                if ($user['is_admin'] == 0) {
+                    $admin = '<span class="text-red">&#10060;</span>';
+                } else {
+                    $admin = '<span class="text-green">&#10004;</span>';
+                }
                 echo '<tr>';
                 echo '<td>' . $user['name'] . '</td>';
                 echo '<td>' . $user['tm_name'] . '</td>';
+                echo '<td>' . $admin . '</td>';
                 echo "<td><a style='text-decoration: none;' href='index.php?page=user_edit&id=" .
                     $user['id'] .
                     "'>&#9989;</a></td>";
-                echo "<td><a onclick='javascript:confirmationDelete($(this));return false;' style='text-decoration: none;'  href='index.php?page=movies_delete&id=" .
+                echo "<td><a onclick='javascript:confirmationDelete($(this));return false;' style='text-decoration: none;'  href='index.php?page=user_delete&id=" .
                     $user['id'] .
                     "'>&#10062;</a></td>";
             }
@@ -69,16 +76,16 @@ if (!isset($_SESSION['ID'])) {
             $sql = 'SELECT * FROM team';
             $stmt = $db->prepare($sql);
             $stmt->execute([]);
-            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($users as $user) {
-                $id = $user['id'];
+            $teams = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($teams as $team) {
+                $id = $team['id'];
                 echo '<tr>';
-                echo '<td>' . $user['tm_name'] . '</td>';
+                echo '<td>' . $team['tm_name'] . '</td>';
                 echo "<td><a style='text-decoration: none;' href='index.php?page=team_edit&id=" .
-                    $user['id'] .
+                    $team['id'] .
                     "'>&#9989;</a></td>";
-                echo "<td><a onclick='javascript:confirmationDelete($(this));return false;' style='text-decoration: none;'  href='index.php?page=movies_delete&id=" .
-                    $user['id'] .
+                echo "<td><a onclick='javascript:confirmationDelete($(this));return false;' style='text-decoration: none;'  href='index.php?page=team_delete&id=" .
+                    $team['id'] .
                     "'>&#10062;</a></td>";
             }
             ?>
