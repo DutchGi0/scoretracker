@@ -33,12 +33,6 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=homepage">Home</a>
           </li>
-          <!-- <li>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </li> -->
           <!-- Account -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,12 +68,6 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=teams">Teams</a>
           </li>
-          <!-- <li>
-            <form class="d-flex" action="pages/search.php" method="GET">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </li> -->
           <!-- Account -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -112,6 +100,9 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="index.php?page=admin">Admin Panel</a>
+          </li>
+           <li class="nav-item active">
+            <a class="nav-link" href="index.php?page=teams">Teams</a>
           </li>
           <!-- Account -->
               <li class="nav-item dropdown">

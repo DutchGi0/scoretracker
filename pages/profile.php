@@ -5,7 +5,8 @@ if (!isset($_SESSION['ID'])) {
 } else {
     ?>
 <?php
-$sql = 'SELECT * FROM user INNER JOIN team ON user.id = team.userid WHERE email = :email';
+// Select user from database
+$sql = 'SELECT * FROM user INNER JOIN team ON user.id = team.id WHERE email = :email';
 $stmt = $db->prepare($sql);
 $stmt->execute([':email' => $_SESSION['E-MAIL']]);
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);

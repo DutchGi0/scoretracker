@@ -27,15 +27,15 @@ if (isset($_SESSION['ID'])) {
             <div class="mb-3 text-white">
                 <!-- login via email -->
                 <label for="email" class="form-label">email</label>
-                <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+                <input type="text" class="form-control" name="email" id="email" aria-describedby="emailHelp" autocomplete="off" required>
             </div>
             <div class="mb-3 text-white">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" required>
+                <input type="password" class="form-control" name="password" id="password" autocomplete="off" required>
+                <!-- Show password -->
                 <input type="checkbox" onclick="showPassword()">Show Password
             </div>
 
-            <!-- <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div> -->
             <button type="submit" name="submit" class="btn btn-primary">Login</button> 
             <span class="right">Forgot your password? <a style="text-decoration: none;" class="text-red" href="index.php?page=password_reset">Reset here</a></span>
             <br>
@@ -61,9 +61,11 @@ if (isset($_SESSION['ID'])) {
                                 $_SESSION['STATUS'] = 'ACTIEF';
                                 $_SESSION['ROL'] = $rol;
                                 if ($rol == 0) {
+                                    // if user is not an admin redirect to homepage
                                     echo "<script>location.href='index.php?page=profile'</script>";
                                 } elseif ($rol == 1) {
-                                    echo "<script>location.href='index.php?page=homepage'</script>";
+                                    // if user is an admin redirect to admin page
+                                    echo "<script>location.href='index.php?page=adnin'</script>";
                                 } else {
                                     $error .= 'Access denied<br>';
                                 }

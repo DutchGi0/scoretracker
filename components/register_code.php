@@ -1,14 +1,15 @@
 <?php
-
+// if user is logged in, redirect to homepage
 if (isset($_SESSION['user'])) {
     header('location: index.php?page=homepage');
 }
 
 if (isset($_REQUEST['register_btn'])) {
+    // filter and sanitize input
     $name = htmlspecialchars($_REQUEST['name']);
     $email = htmlspecialchars(strtolower($_REQUEST['email']));
     $password = strip_tags($_REQUEST['password']);
-
+    // different error massages
     if (empty($name)) {
         $errorMsg[0][] = 'Enter your full name';
     }
@@ -27,7 +28,7 @@ if (isset($_REQUEST['register_btn'])) {
             $errorMsg[4][] = 'Your passwords do not match';
         }
     }
-
+    // if no errors, check if email already exists
     if (empty($errorMsg)) {
         try {
             $select_stat = $db->prepare(
@@ -39,6 +40,7 @@ if (isset($_REQUEST['register_btn'])) {
             if (isset($row['email']) == $email) {
                 $errorMsg[2][] = 'This email address is already used';
             } else {
+                // if no errors, insert user into database
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                 $instert_stat = $db->prepare(
