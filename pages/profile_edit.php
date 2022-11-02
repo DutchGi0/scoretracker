@@ -1,5 +1,5 @@
 <?php
-// if user isn't logged in and/or isn't admin redirect to login page
+// if user isn't logged in to login page
 if (!isset($_SESSION['ID'])) {
     header('Location: index.php?page=login');
 } else {
@@ -19,6 +19,7 @@ if (!isset($_SESSION['ID'])) {
 </head>
 <body>
     <?php
+    // Select user from database
     $sql = 'SELECT * FROM user WHERE id= ?';
     $stmt = $db->prepare($sql);
     $stmt->execute([$_GET['id']]);
@@ -48,6 +49,7 @@ if (!isset($_SESSION['ID'])) {
                 </tr>
                 <tr>
                     <td>
+                        <!-- User can't edit email -->
                         <input type="email" name="email" class="form-control" placeholder="E-mail" id='email' value=<?php echo $_SESSION["E-MAIL"] ?> readonly>
                     </td>
                     <td>
@@ -66,6 +68,7 @@ if (!isset($_SESSION['ID'])) {
             <tbody>
                 <tr>
                     <td>
+                        <!-- User can't edit goals and assists -->
                         <label for="goals" class="sr-only">Goals</label>
                         <input type="number" name="goals" class="form-control" placeholder="0" id='goals' value='<?php echo $user["goal"] ?>' readonly>
                         <label for="inputPassword2" class="sr-only">Assists</label>
@@ -86,6 +89,7 @@ if (!isset($_SESSION['ID'])) {
             <tbody>
                 <tr>
                     <td>
+                        <!-- User needs to confim password -->
                         <input type="password" name="password" class="form-control" placeholder="Password" id='password' value='' required>
                         <input type="checkbox" onclick="showPassword()">Show Password
                     </td>
@@ -107,6 +111,7 @@ if (!isset($_SESSION['ID'])) {
     <?php
     }
 
+    // if password does match with password_confirm then update user
     if (isset($_POST['password']) && isset($_POST['password_confirm'])) {
         $password = $_POST['password'];
         $password_confirm = $_POST['password_confirm'];

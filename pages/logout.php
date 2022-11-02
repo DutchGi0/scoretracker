@@ -1,4 +1,5 @@
 <?php
+// if user is logged out unset all session data
 unset($_SESSION['ID']);
 unset($_SESSION['USER_ID']);
 unset($_SESSION['STATUS']);

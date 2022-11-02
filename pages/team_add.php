@@ -17,7 +17,7 @@
         <form name="newteam" class="form" action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="teamname" class="form-label">Team Name:</label>
-                <input type="text" class="form-control" name="teamname" id="teamname" aria-describedby="teamname">
+                <input type="text" class="form-control" name="teamname" id="teamname" aria-describedby="teamname" required>
             </div>
             <button class="btn btn-dark uppercase" name="submit" type="submit">Add new team</button>
             <span class="right"><a class="text-red" style="text-decoration: none;" href="index.php?page=admin">Back</a></span>
@@ -25,6 +25,7 @@
             <?php if (isset($_POST['submit'])) {
                 
                 $error = '';
+                // Insert new team into database
                 $teamname = htmlspecialchars($_POST['teamname']);
 
                 $sql = "INSERT INTO team (id, tm_name) 

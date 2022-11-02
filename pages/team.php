@@ -1,4 +1,5 @@
 <?php 
+// Select all users from database where user is in the team
 $sql = 'SELECT * FROM user WHERE teamid = :id';
 $stmt = $db->prepare($sql);
 $stmt->execute(['id' => $_GET['id']]);
@@ -38,11 +39,11 @@ $assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="container">
-
-    
+        <!-- Shows Team Name -->
         <h1 class='title'><?php echo $name ?></h1>
         <div class="row">
             <div class="col-6">
+                <!-- Shows total goals and assists -->
                 <h2 class="h2-title">Goals</h2>
                 <p class="h2-title"><?php foreach ($goals as $goal) {
                     echo $goal['total'];
@@ -69,6 +70,7 @@ $assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $id = $user['id'];
                     ?>
                 <tr>
+                    <!-- Display team member, goals and assist per team member -->
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['goal']; ?></td>
                     <td><?php echo $user['assist']; ?></td>

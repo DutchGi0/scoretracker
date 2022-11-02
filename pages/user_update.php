@@ -6,6 +6,7 @@ if (!isset($_SESSION['ID'])) {
     header('Location: index.php?page=homepage');
 } else {
      ?>
+     <!-- Update user name, assists, team, goals, admin -->
 <?php if (isset($_POST['submit'])) {
     $id = htmlspecialchars($_POST['id']);
     $name = htmlspecialchars($_POST['name']);
@@ -18,6 +19,7 @@ if (!isset($_SESSION['ID'])) {
     $stmt = $db->prepare($sql);
     try {
         $stmt = $stmt->execute([$name, $goals, $assist, $is_admin, $teamid, $id]);
+        // Alert script with confirmation message
         echo "<script>alert('User is updated');
             location.href='index.php?page=admin';</script>";
     } catch (PDOException $e) {

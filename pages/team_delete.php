@@ -7,6 +7,7 @@ if (!isset($_SESSION['ID'])) {
 } else {
      ?>
 <?php
+// Delete team from database
 $sql = 'DELETE FROM team WHERE ID = ?';
 $stmt = $db->prepare($sql);
 try {

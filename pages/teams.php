@@ -1,10 +1,12 @@
 <!-- Get teams DB -->
 <?php
+// Select all teams from database
 $sql = 'SELECT *  FROM team ';
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $teams = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
+// Calculate total goals and assists
 $goals = 'SELECT sum(`goal`) as total FROM user;';
 $stmt = $db->prepare($goals);
 $stmt->execute();
@@ -27,7 +29,7 @@ $assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.6.1.min.js" defer></script>
     <script src="bootstrap/js/bootstrap.min.js" defer></script>  
-    <title>Teams</title>
+    <title>Stat Tracker - Teams</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -37,8 +39,8 @@ $assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table class="table table-dark">
             <thead>
                 <tr>
-                    <th>Team</th>
-                    <th>View team</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">View team</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +48,9 @@ $assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     $id = $team['id'];
                     ?>
                 <tr>
+                    <!-- Display teams -->
                     <td><?php echo $team['tm_name']; ?></td>
-                    <td><?php echo "<span class='uppercase'> <a class='btn btn-primary' href='index.php?page=team&id=" .
+                    <td><?php echo "<span class='uppercase'> <a class='btn  btn-outline-secondary' href='index.php?page=team&id=" .
                             $team['id'] .
                             "'>View team</a></span>"; ?>
                 </tr>

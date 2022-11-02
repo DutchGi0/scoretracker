@@ -20,6 +20,7 @@ if (!isset($_SESSION['ID'])) {
 </head>
 <body>
 <?php
+// Select user from database to edit as admin
 $sql = 'SELECT * FROM user WHERE ID= ?';
 $stmt = $db->prepare($sql);
 $stmt->execute([$_GET['id']]);
@@ -38,6 +39,7 @@ foreach ($users as $user) { ?>
                 'name'
             ]; ?>"/>
         </div>
+        <!-- Admin can't edit e-mail -->
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="text" class="form-control" id="email" name="email"  value="<?php echo $user[
@@ -56,6 +58,7 @@ foreach ($users as $user) { ?>
                 'assist'
             ]; ?>"/>
         </div>
+        <!-- Select bar with selected team -->
         <div class="mb-3">
             <label for="teamid" class="form-label">Team:</label>
             <select class="form-control" id="teamid" name="teamid">
@@ -78,6 +81,7 @@ foreach ($users as $user) { ?>
             </select>
         </div>
         <div class="mb-3">
+            <!-- Change admin status -->
             <label for="is_admin" class="form-label">Is admin:</label>
 
             <?php $selecton = array(0, 1);

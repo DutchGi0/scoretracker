@@ -106,6 +106,15 @@ body {
 	user-select: none;
 }
 
+.h3-title {
+	font-size: 1.25em;
+	color: white;
+	text-transform: uppercase;
+	padding-block: 0.5em;
+	font-weight: bold;
+	user-select: none;
+}
+
 .right {
 	float: right;
 }
@@ -117,4 +126,9 @@ body {
 
 .uppercase {
 	text-transform: uppercase;
+}
+
+.line {
+	padding: 0.5em;
+	border-bottom: 0.12em solid hsl(240, 2%, 23%);
 }

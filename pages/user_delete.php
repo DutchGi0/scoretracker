@@ -7,6 +7,7 @@ if (!isset($_SESSION['ID'])) {
 } else {
      ?>
 <?php
+// Delete user from database
 $sql = 'DELETE FROM user WHERE ID = ?';
 $stmt = $db->prepare($sql);
 try {

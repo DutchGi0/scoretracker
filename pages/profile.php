@@ -5,6 +5,7 @@ if (!isset($_SESSION['ID'])) {
 } else {
     ?>
 <?php
+// Select user from database
 $sql = 'SELECT * FROM user INNER JOIN team ON user.id = team.id WHERE email = :email';
 $stmt = $db->prepare($sql);
 $stmt->execute([':email' => $_SESSION['E-MAIL']]);
