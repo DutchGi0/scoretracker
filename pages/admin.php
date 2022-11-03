@@ -122,7 +122,6 @@ if (!isset($_SESSION['ID'])) {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -137,7 +136,6 @@ if (!isset($_SESSION['ID'])) {
                     ?>
                     <tr>
                         <td><?php echo $team['tm_name']; ?></td>
-                        <td><a style="text-decoration: none;" href="index.php?page=team_edit&id=<?php echo $team['id']; ?>">&#9989;</a></td>
                         <td><a onclick="javascript:confirmationDelete($(this));return false;" style="text-decoration: none;"  href="index.php?page=team_delete&id=<?php echo $team['id']; ?>">&#10062;</a></td>
                     </tr>
                     <?php
