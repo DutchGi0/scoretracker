@@ -6,17 +6,6 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $teams = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
-// Calculate total goals and assists
-$goals = 'SELECT sum(`goal`) as total FROM user;';
-$stmt = $db->prepare($goals);
-$stmt->execute();
-$goals = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$assists = 'SELECT sum(`assist`) as total FROM user;';
-$stmt = $db->prepare($assists);
-$stmt->execute();
-$assists = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!DOCTYPE html>
