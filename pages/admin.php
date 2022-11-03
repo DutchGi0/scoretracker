@@ -177,7 +177,7 @@ if (!isset($_SESSION['ID'])) {
 <script>
     // conformation script for delete
     function confirmationDelete(anchor){
-        var conf = confirm('Are you sure want to delete this movie?');
+        var conf = confirm('Are you sure want to delete this Team/User?');
         if(conf)
             window.location=anchor.attr("href");
     }
